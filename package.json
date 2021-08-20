@@ -1,0 +1,25 @@
+{
+  "name": "test-stripe-payment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/lluisgarciapons/test-stripe-payment.git"
+  },
+  "author": "Lluís Garcia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lluisgarciapons/test-stripe-payment/issues"
+  },
+  "homepage": "https://github.com/lluisgarciapons/test-stripe-payment#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
