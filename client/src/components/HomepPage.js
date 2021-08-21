@@ -77,6 +77,30 @@ function HomePage() {
         }
     };
 
+    const handleSubmitSub = async (event) => {
+        // We don't want to let default form submission happen here,
+        // which would refresh the page.
+        event.preventDefault();
+
+        if (!stripe || !elements) {
+            // Stripe.js has not yet loaded.
+            // Make sure to disable form submission until Stripe.js has loaded.
+            return;
+        }
+
+        const result = await stripe.createPaymentMethod({
+            type: 'card',
+            card: elements.getElement(CardElement),
+            billing_details: {
+                email
+            }
+        });
+
+        const response = await axios.post("http://localhost:5000/stripe/sub", { payment_method: result.paymentMethod.id, email });
+
+        console.log(response.data);
+    };
+
     return (
         <Card className={classes.root}>
             <CardContent className={classes.content}>
